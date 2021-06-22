@@ -15,6 +15,7 @@ public class ClientHandle : MonoBehaviour
 
         Client.Instance.udp.Connect(((IPEndPoint)Client.Instance.tcp.socket.Client.LocalEndPoint).Port);
         DebugOutput.Instance.PutMessage("Connected to server");
+        DebugOutput.Instance.PutMessage($"Your IP is {IPManager.GetIP(ADDRESSFAM.IPv4)}");
         ClientSend.SendLobby();
     }
 

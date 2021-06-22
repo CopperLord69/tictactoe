@@ -58,7 +58,7 @@ public class Client : MonoBehaviour
         }
     }
 
-    public void ConnectToServer(InputField ip)
+    public void ConnectToServer(TMP_InputField ip)
     {
         Ip = ip.text;
         tcp = new TCP();

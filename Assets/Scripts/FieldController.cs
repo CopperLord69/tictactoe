@@ -58,7 +58,7 @@ public class FieldController : MonoBehaviour
                     Player.Instance.CanMakeTurn = false;
                     foreach(var obj in hits)
                     {
-                        obj.collider.GetComponent<SpriteRenderer>().color = Color.yellow;
+                        obj.collider.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(0.28f,0.67f,0.98f);
                     }
                     Debug.Log("won");
                     break;

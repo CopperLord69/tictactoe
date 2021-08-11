@@ -8,11 +8,6 @@ public class ClientSend : MonoBehaviour
         Client.Instance.tcp.SendData(receivedPacket);
     }
 
-    private static void SendUDPData(Packet receivedPacket)
-    {
-        receivedPacket.WriteLength();
-        Client.Instance.udp.SendData(receivedPacket);
-    }
 
     #region Packets
 

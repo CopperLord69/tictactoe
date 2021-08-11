@@ -41,23 +41,6 @@ namespace Assets.Scripts.Networking
             Debug.Log("Player " + id + " exit lobby");
         }
 
-        public static int FindBattleIdByClientId(int clientId)
-        {
-            foreach(var battle in battles)
-            {
-                if(battle.Value.Contains(clientId))
-                {
-                    return battle.Key;
-                }
-            }
-            return -1;
-        }
-
-        public static void EndBattle(int battleId)
-        {
-            battles.Remove(battleId);
-        }
-
         public static void SendPlayersToMap()
         {
             if (lobby.Count >= minPlayersPerSession)

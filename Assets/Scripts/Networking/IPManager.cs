@@ -23,7 +23,6 @@ public class IPManager
             {
                 foreach (UnicastIPAddressInformation ip in item.GetIPProperties().UnicastAddresses)
                 {
-                    //IPv4
                     if (Addfam == ADDRESSFAM.IPv4)
                     {
                         if (ip.Address.AddressFamily == AddressFamily.InterNetwork)
@@ -36,7 +35,6 @@ public class IPManager
                         }
                     }
 
-                    //IPv6
                     else if (Addfam == ADDRESSFAM.IPv6)
                     {
                         if (ip.Address.AddressFamily == AddressFamily.InterNetworkV6)

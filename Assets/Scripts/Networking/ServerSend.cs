@@ -55,38 +55,6 @@ public class ServerSend : MonoBehaviour
         Server.clients[tcpClient].tcp.SendData(packet);
     }
 
-
-
-    private static void SendTcpDataToAll(Packet packet)
-    {
-        packet.WriteLength();
-        for (int i = 1; i < Server.MaxPlayers; i++)
-        {
-            Server.clients[i].tcp.SendData(packet);
-        }
-    }
-
-    public static void SendTcpDataToAllExcept(int exceptClient, Packet packet)
-    {
-        packet.WriteLength();
-        for (int i = 1; i < Server.MaxPlayers; i++)
-        {
-            if (i != exceptClient)
-            {
-                Server.clients[i].tcp.SendData(packet);
-            }
-        }
-    }
-
-    public static void SendTcpDataToAllInBattle(int battleId, Packet p)
-    {
-        p.WriteLength();
-        foreach (var client in Matchmaker.GetPlayersInBattle(battleId))
-        {
-            Server.clients[client].tcp.SendData(p);
-        }
-    }
-
     public static void SendTcpDataToAllInBattleExcept(int except, Packet p, int battleId)
     {
         p.WriteLength();
@@ -99,55 +67,5 @@ public class ServerSend : MonoBehaviour
         }
     }
 
-    #endregion
-
-    #region UDP
-    private static void SendUdpData(int client, Packet p)
-    {
-        p.WriteLength();
-        Server.clients[client].udp.SendData(p);
-    }
-
-    private static void SendUdpDataToAll(Packet packet)
-    {
-        packet.WriteLength();
-        for (int i = 1; i < Server.MaxPlayers; i++)
-        {
-            Server.clients[i].udp.SendData(packet);
-        }
-    }
-
-    public static void SendUdpDataToAllExcept(int exceptClient, Packet packet)
-    {
-        packet.WriteLength();
-        for (int i = 1; i < Server.MaxPlayers; i++)
-        {
-            if (i != exceptClient)
-            {
-                Server.clients[i].udp.SendData(packet);
-            }
-        }
-    }
-
-    public static void SendUdpDataToAllInBattle(int battleId, Packet p)
-    {
-        p.WriteLength();
-        foreach (var client in Matchmaker.GetPlayersInBattle(battleId))
-        {
-            Server.clients[client].udp.SendData(p);
-        }
-    }
-
-    public static void SendUdpDataToAllInBattleExcept(int battleId, int except, Packet p)
-    {
-        p.WriteLength();
-        foreach (var client in Matchmaker.GetPlayersInBattle(battleId))
-        {
-            if (client != except)
-            {
-                Server.clients[client].udp.SendData(p);
-            }
-        }
-    }
     #endregion
 }

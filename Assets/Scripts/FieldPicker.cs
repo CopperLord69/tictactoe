@@ -15,7 +15,6 @@ public class FieldPicker : MonoBehaviour
         UIManager.Instance.SetPlayerType(Player.Instance.FigureType);
     }
 
-    // Update is called once per frame
     void Update()
     {
 # if UNITY_EDITOR

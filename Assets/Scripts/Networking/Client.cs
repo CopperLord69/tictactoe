@@ -1,10 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Net;
 using System.Net.Sockets;
 using System;
-using UnityEngine.UI;
 using TMPro;
 
 public class Client : MonoBehaviour
@@ -35,10 +33,6 @@ public class Client : MonoBehaviour
         {
             Destroy(this);
         }
-    }
-    private void Start()
-    {
-
     }
 
     private void OnApplicationQuit()
@@ -171,7 +165,6 @@ public class Client : MonoBehaviour
             if (receivedPacket.UnreadLength() >= 4)
             {
                 packetLength = receivedPacket.ReadInt();
-                //Debug.Log(packetLength);
                 if (packetLength <= 0)
                 {
                     return true;

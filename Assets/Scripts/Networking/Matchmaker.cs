@@ -45,27 +45,20 @@ namespace Assets.Scripts.Networking
         {
             if (lobby.Count >= minPlayersPerSession)
             {
-                List<TicTacToeFigureType> figureTypes = new List<TicTacToeFigureType>()
-                {
-                    TicTacToeFigureType.Cross,
-                    TicTacToeFigureType.Circle,
-                };
-                List<bool> playersCanMove = new List<bool>();
+                List<bool> playersCanMove = new List<bool>(minPlayersPerSession);
                 for(int i = 0; i < minPlayersPerSession; i++)
                 {
                     playersCanMove.Add(false);
                 }
-                playersCanMove[Random.Range(0, minPlayersPerSession - 1)] = true;
+                playersCanMove[Random.Range(0, minPlayersPerSession)] = true;
                 var battleId = GenerateBattleId();
-                battles.Add(battleId, new List<int>());
+                battles.Add(battleId, new List<int>(minPlayersPerSession));
                 var mapId = Random.Range(mapIds[0], mapIds[mapIds.Length - 1]);
                 for(int count = 0; count < minPlayersPerSession; count++)
                 {
-                    var figureType = figureTypes[Random.Range(0, figureTypes.Count)];
-                    figureTypes.Remove(figureType);
+                    var figureType = playersCanMove[count] ? TicTacToeFigureType.Cross : TicTacToeFigureType.Circle;
                     var client = lobby.First();
-                    var canMove = playersCanMove[count];
-                    ServerSend.LoadMap(client, mapId, battleId, (int)figureType, canMove);
+                    ServerSend.LoadMap(client, mapId, battleId, (int)figureType, playersCanMove[count]);
                     battles[battleId].Add(client);
                     lobby.Remove(lobby.First());
                 }

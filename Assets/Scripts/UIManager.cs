@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Assets.Scripts;
 using UnityEngine.Events;
+using System;
 
 public class UIManager : MonoBehaviour
 {
@@ -40,7 +41,7 @@ public class UIManager : MonoBehaviour
     {
         if (!Client.Instance.InLobby)
         {
-            ClientSend.SendLeavedSession();
+            ClientSend.SendPlayAgain();
             ClientSend.SendLobby();
         }
     }
@@ -60,4 +61,8 @@ public class UIManager : MonoBehaviour
         PlayerFigureTypeLabel.text = "Other player leaved game";
     }
 
+    internal void ShowOtherPlayerWantsToPlayAgainMessage()
+    {
+        PlayerFigureTypeLabel.text = "Other player wants to play again";
+    }
 }

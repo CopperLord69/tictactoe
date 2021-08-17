@@ -56,4 +56,9 @@ public class ClientHandle : MonoBehaviour
     {
         UIManager.Instance.ShowOtherPlayerLeavedMessage();
     }
+
+    internal static void OtherPlayerPlayAgain(Packet packet)
+    {
+        UIManager.Instance.ShowOtherPlayerWantsToPlayAgainMessage();
+    }
 }

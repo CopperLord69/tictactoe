@@ -124,6 +124,7 @@ public class Server
                 { (int)ClientPackets.LobbyExit, ServerHandle.PlayerLobbyExit },
                 { (int)ClientPackets.Turn, ServerHandle.PlayerTurn },
                 { (int)ClientPackets.LeavedSession, ServerHandle.PlayerLeavedSession },
+            {(int)ClientPackets.PlayAgain, ServerHandle.PlayerPlayAgain }
             };
         Debug.Log("Initialized packets");
     }

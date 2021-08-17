@@ -317,7 +317,8 @@ public class Client : MonoBehaviour
             { ServerPackets.EnterLobby, ClientHandle.EnteredLobby },
             { ServerPackets.ExitLobby, ClientHandle.ExitLobby },
             { ServerPackets.Turn, ClientHandle.OtherPlayerTurn },
-            {ServerPackets.OtherPlayerLeaved, ClientHandle.OtherPlayerLeaved }
+            {ServerPackets.OtherPlayerLeaved, ClientHandle.OtherPlayerLeaved },
+            {ServerPackets.PlayAgain, ClientHandle.OtherPlayerPlayAgain }
         };
         Debug.Log("initialized packets");
     }

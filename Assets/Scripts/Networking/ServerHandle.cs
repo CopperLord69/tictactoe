@@ -51,5 +51,14 @@ public class ServerHandle
         {
             ServerSend.SendTcpDataToAllInBattleExcept(fromClient, packetToSend, battleId);
         }
-    }   
+    }
+
+    internal static void PlayerPlayAgain(int fromClient, Packet p)
+    {
+        var battleId = p.ReadInt();
+        using(Packet packetToSend = new Packet((int)ServerPackets.PlayAgain))
+        {
+            ServerSend.SendTcpDataToAllInBattleExcept(fromClient, packetToSend, battleId);
+        }
+    }
 }

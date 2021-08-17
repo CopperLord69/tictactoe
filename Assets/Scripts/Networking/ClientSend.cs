@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ClientSend : MonoBehaviour
@@ -37,6 +38,16 @@ public class ClientSend : MonoBehaviour
             packetToSend.Write(figureType);
             packetToSend.Write(fieldName);
             SendTCPData(packetToSend);
+        }
+    }
+
+    internal static void SendPlayAgain()
+    {
+        Player.Instance.CanMakeTurn = false;
+        using(Packet p = new Packet((int)ClientPackets.PlayAgain))
+        {
+            p.Write(Client.Instance.battleId);
+            SendTCPData(p);
         }
     }
 

@@ -11,6 +11,7 @@ public enum ServerPackets
     EnterLobby,
     ExitLobby,
     OtherPlayerLeaved,
+    PlayAgain
 }
 
 public enum ClientPackets
@@ -20,6 +21,7 @@ public enum ClientPackets
     LobbyExit,
     Turn,
     LeavedSession,
+    PlayAgain,
 }
 
 public class Packet : IDisposable

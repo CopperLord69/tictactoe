@@ -15,10 +15,10 @@ public class IPManager
         foreach (NetworkInterface item in NetworkInterface.GetAllNetworkInterfaces())
         {
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
-            NetworkInterfaceType _type1 = NetworkInterfaceType.Wireless80211;
-            NetworkInterfaceType _type2 = NetworkInterfaceType.Ethernet;
+            NetworkInterfaceType type1 = NetworkInterfaceType.Wireless80211;
+            NetworkInterfaceType type2 = NetworkInterfaceType.Ethernet;
 
-            if ((item.NetworkInterfaceType == _type1 || item.NetworkInterfaceType == _type2) && item.OperationalStatus == OperationalStatus.Up)
+            if ((item.NetworkInterfaceType == type1 || item.NetworkInterfaceType == type2) && item.OperationalStatus == OperationalStatus.Up)
 #endif 
             {
                 foreach (UnicastIPAddressInformation ip in item.GetIPProperties().UnicastAddresses)

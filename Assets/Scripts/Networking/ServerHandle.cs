@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Assets.Scripts.Networking;
+using UnityEngine;
 
 public class ServerHandle
 {

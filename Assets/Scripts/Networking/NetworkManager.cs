@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class NetworkManager : MonoBehaviour
@@ -33,11 +31,4 @@ public class NetworkManager : MonoBehaviour
         Server.Stop();
     }
 
-    public Player InstantiatePlayer(int playerId)
-    {
-        var pl = player.AddComponent<Player>();
-        pl.id = playerId;
-        return pl;
-            
-    }
 }
